@@ -52,7 +52,6 @@ const getDataFromExcel = () => {
 
     // If there is no change, don't change
     // if (relevantLangs === addedLanguages) return;
-    console.log(relevantLangs);
     // Remove unrelevant old languages from dropdown
     for (let addedLanguage of addedLanguages) {
       if (
