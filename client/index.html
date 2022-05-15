@@ -14,56 +14,59 @@
   </head>
   <body>
     <div
-      class="d-flex flex-column align-items-center justify-content-center mt-5"
+      class="container d-flex flex-column align-items-center justify-content-center mt-5"
     >
       <h1>Content Tool</h1>
-      <p>
-        Instructions: <br />
-        1) Upload an Excel file according to the format: <br />
-        - Excel file must be of type .xlsx. <br />
-        - Excel file must contain the 3 columns - "Id", "Translated",
-        "Language", in that order. <br />
-        - "Id" column should contain only numbers, "Translated" column may be
-        empty or filled, and "Language" column should contain only strings.
-        <br />
-        2) Open the language dropdown list, choose the language you want to
-        insert its translated data into the DB, and click 'Submit'. <br />
-        3) Copy the SQL script using the designated 'Copy' button.
-      </p>
       <div class="my-5">
-        <div>
-          <div><label id="input-label" for="input"></label></div>
+        <p>
+          <strong>Instructions:</strong> <br />
+          <strong>1)</strong> Upload an Excel file according to the format:
+          <br />
+          - Excel file must be of type .xlsx. <br />
+          - Excel file must contain the 3 columns - "Id", "Translated",
+          "Language", in that order. <br />
+          - "Id" column should contain only numbers, "Translated" column may be
+          empty or filled, and "Language" column should contain only strings.
+          <br />
+          <strong>2)</strong> Open the language dropdown list, choose the
+          language you want to insert its translated data into the DB, and click
+          'Submit'. <br />
+          <strong>3)</strong> Copy the SQL script using the designated 'Copy'
+          button.
+        </p>
+      </div>
+
+      <div class="py-5 px-5 bg-light">
+        <label id="input-label" for="input"></label>
+        <div class="d-flex justify-content-center align-items-center">
           <input type="file" accept=".xlsx" id="input" />
+          <form id="language-form">
+            <select id="language-dd" required>
+              <option value="0">Language</option>
+            </select>
+            <button class="ms-2" id="submit-button">Submit</button>
+          </form>
         </div>
-        <form id="language-form">
-          <!-- <div> -->
-          <!-- <p>Please upload an .xlsx file</p> -->
 
-          <!-- </div> -->
-          <!-- <div class="mt-3 d-flex justify-content-center"> -->
-          <select id="language-dd" required>
-            <option value="0">Language</option>
-          </select>
-          <button class="ms-2" id="submit-button">Submit</button>
-          <!-- </div> -->
-        </form>
+        <div
+          class="d-flex flex-column align-items-center justify-content-center mb-3 mt-5"
+        >
+          <label for="sql-text">SQL script output:</label>
+          <textarea
+            rows="3"
+            cols="60"
+            class="form-control"
+            disabled
+            id="sql-text"
+          ></textarea>
+        </div>
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+        >
+          <button id="copy-btn">Copy Script</button>
+          <label id="copy-label" for="copy-btn"></label>
+        </div>
       </div>
-
-      <div
-        class="d-flex flex-column align-items-center justify-content-center mb-3"
-      >
-        <label for="sql-text">SQL script output:</label>
-        <textarea
-          rows="3"
-          cols="60"
-          class="form-control"
-          disabled
-          id="sql-text"
-        ></textarea>
-      </div>
-
-      <button id="copy-btn">Copy</button>
-      <label id="copy-label" for="copy-btn"></label>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -71,6 +74,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
-    <script type="module" src="languageController.js"></script>
+    <script type="module" src="mainController.js"></script>
   </body>
 </html>

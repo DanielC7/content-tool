@@ -1,9 +1,7 @@
-import { flashMessage } from "./utils/flashMessage.js";
 let inDatabase = [];
 
 const printSqlScript = (languageDropDown, sqlTextField, addedLanguages) => {
   if (languageDropDown.value !== "0") {
-    //getSelectedLanguage
     const selectedLanguageRow = addedLanguages.find((lang) => {
       return lang[2] === languageDropDown.value;
     });
@@ -20,7 +18,6 @@ const printSqlScript = (languageDropDown, sqlTextField, addedLanguages) => {
 const generateSqlScript = (addedLanguage, languageId) => {
   const resourseId = addedLanguage[0];
   const translatedData = addedLanguage[1];
-  //   const languageName = addedLanguage[2];
 
   const updateScript =
     "UPDATE Translation_Location\n" +
