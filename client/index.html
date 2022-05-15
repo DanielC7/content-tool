@@ -26,14 +26,19 @@
         - "Id" column should contain only numbers, "Translated" column may be
         empty or filled, and "Language" column should contain only strings.
         <br />
-        2)
+        2) Open the language dropdown list, choose the language you want to
+        insert its translated data into the DB, and click 'Submit'. <br />
+        3) Copy the SQL script using the designated 'Copy' button.
       </p>
       <div class="my-5">
+        <div>
+          <div><label id="input-label" for="input"></label></div>
+          <input type="file" accept=".xlsx" id="input" />
+        </div>
         <form id="language-form">
           <!-- <div> -->
           <!-- <p>Please upload an .xlsx file</p> -->
-          <input type="file" accept=".xlsx" id="input" required />
-          <label id="input-label" for="input"></label>
+
           <!-- </div> -->
           <!-- <div class="mt-3 d-flex justify-content-center"> -->
           <select id="language-dd" required>

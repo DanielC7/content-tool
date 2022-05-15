@@ -82,6 +82,10 @@ const getDataFromExcel = () => {
     }
     addedLanguages = relevantLangs;
   });
+  // Clean file name in order to support same file name re-upload in the future
+  //   input.value = "";
+  // TODO - successfuly uploaded file message to user
+  flashMessage(inputLabel, "Successfuly uploaded file", "Green");
 };
 
 const showSQLScript = (e) => {
@@ -133,23 +137,6 @@ const generateSqlScript = (addedLanguage, languageId) => {
   }
 };
 
-// const copyTextToClipboard = () => {
-//   const copyLabel = document.getElementById("copy-label");
-//   navigator.clipboard.writeText(sqlTextField.value).then(
-//     (success) => {
-//       copyLabel.innerHTML = "text copied";
-//       copyLabel.style.color = "green";
-//     },
-//     (err) => {
-//       copyLabel.innerHTML = "error copying text";
-//       copyLabel.style.color = "red";
-//     }
-//   );
-//   setTimeout(function () {
-//     copyLabel.innerHTML = "";
-//   }, 5000);
-// };
-
 const copyTextToClipboard = () => {
   const copyLabel = document.getElementById("copy-label");
   if (!sqlTextField.value.includes("Translation_Location")) {
@@ -166,6 +153,10 @@ const copyTextToClipboard = () => {
   }
 };
 
+const resetFileName = () => {
+  input.value = "";
+};
+
 const flashMessage = (label, message, color) => {
   label.innerHTML = message;
   label.style.color = color;
@@ -175,5 +166,6 @@ const flashMessage = (label, message, color) => {
 };
 
 copyBtn.addEventListener("click", copyTextToClipboard);
+input.addEventListener("click", resetFileName);
 input.addEventListener("change", getDataFromExcel);
 languageForm.addEventListener("submit", showSQLScript);
